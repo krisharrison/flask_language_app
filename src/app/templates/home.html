@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <fieldset>
+        <legend>{{ title }}</legend>
+        {% for word in words %}
+        <article>
+            <div>
+               <h3><a href="{{ url_for('dictionary.selected_word', word_id=word.id) }}">{{ word.english_word.title() }}</a></h3>
+                <p> {{ word.german_article.title() }} {{ word.german_word.title() }}</p>
+            </div>
+        </article>
+        {% endfor %}
+    </fieldset>
+</div>
+{% endblock %}
+

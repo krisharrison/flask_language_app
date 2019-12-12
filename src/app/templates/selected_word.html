@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <fieldset>
+        <legend>{{ title }}</legend>
+        <article>
+            <div>
+                <h3><a>{{ word.english_word.title() }}</a></h3>
+                <p> {{ word.german_article.title() }} {{ word.german_word.title() }}</p>
+                {% if word.word == current_user %}
+                    <a href="{{ url_for('dictionary.update_word', word_id=word.id) }}"> Update</a>
+                    <a href="{{ url_for('dictionary.delete_word', word_id=word.id) }}"> Delete</a>
+                {% endif %}
+            </div>
+        </article>
+    </fieldset>
+</div>
+{% endblock %}

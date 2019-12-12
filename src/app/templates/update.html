@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset>
+            <legend>{{ title }}</legend>
+            <div>
+                {{ form.english_word.label() }}
+                </br>{{ form.english_word }}
+        
+                {% if form.english_word.errors %}
+                <div>
+                    {% for error in english_word.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div>
+                {{ form.german_article.label() }}
+                </br>{{ form.german_article }}
+        
+                {% if form.german_article.errors %}
+                <div>
+                    {% for error in form.german_article.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div>
+                {{ form.german_word.label() }}
+                </br>{{ form.german_word }}
+    
+                {% if form.german_word.errors %}
+                <div>
+                    {% for error in german_word.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div>
+                </br>{{ form.submit }}  
+            </div>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}
